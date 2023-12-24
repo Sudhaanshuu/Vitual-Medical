@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting Scheduler</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        
+        #container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 100%;
+            max-width: 400px;
+        }
+        
+        #scheduler {
+            margin: 20px;
+            padding: 20px;
+        }
+        
+        #meetingList {
+            margin-top: 20px;
+        }
+        
+        .meeting-item {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+            transition: background-color 0.3s ease;
+        }
+        
+        .meeting-item:hover {
+            background-color: #e5e5e5;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+        
+        button {
+            background-color: #4caf50;
+            color: #fff;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        
+        button:hover {
+            background-color: #45a049;
+        }
+        
+        @media (max-width: 600px) {
+            #container {
+                border-radius: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="container">
+        <div id="scheduler">
+            <h2>Schedule a Meeting</h2>
+            <label for="meetingName">Meeting Name:</label>
+            <input type="text" id="meetingName" placeholder="Enter meeting name">
+
+            <label for="meetingTime">Meeting Time:</label>
+            <input type="datetime-local" id="meetingTime">
+
+            <button onclick="scheduleMeeting()">Schedule</button>
+        </div>
+
+        <div id="meetingList">
+            <h3>Upcoming Meetings</h3>
+            <!-- Meeting items will be displayed here -->
+        </div>
+    </div>
+
+    <script>
+        function scheduleMeeting() {
+            var meetingName = document.getElementById("meetingName").value;
+            var meetingTime = document.getElementById("meetingTime").value;
+
+            if (meetingName && meetingTime) {
+                var meetingList = document.getElementById("meetingList");
+
+                // Create a new meeting item
+                var meetingItem = document.createElement("div");
+                meetingItem.className = "meeting-item";
+
+                // Display meeting details
+                meetingItem.innerHTML = `<strong>${meetingName}</strong><br>${new Date(meetingTime).toLocaleString()}`;
+
+                // Add the meeting item to the list
+                meetingList.appendChild(meetingItem);
+
+                // Clear input fields
+                document.getElementById("meetingName").value = "";
+                document.getElementById("meetingTime").value = "";
+            } else {
+                alert("Please enter meeting details.");
+            }
+        }
+    </script>
+
+</body>
+
+</html>
