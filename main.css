@@ -261,3 +261,38 @@ li {
 li:hover {
     transform: scale(1.05);
 }
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#sponsoredBrands {
+    padding: 40px 0;
+    background-color: #f9f9f9;
+    text-align: center;
+}
+
+h2 {
+    color: #333;
+}
+
+#brandList {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.brandCard {
+    background-color: #fff;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+.brandCard:hover {
+    transform: scale(1.05);
+}
