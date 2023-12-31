@@ -49,3 +49,26 @@ document.addEventListener('DOMContentLoaded', function() {
         doctorListElement.appendChild(listItem);
     });
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const brandListElement = document.getElementById('brandList');
+
+    // Dummy data (replace with actual data or fetch from a server)
+    const sponsoredBrandsData = [
+        'Brand A',
+        'Brand B',
+        'Brand C',
+        'Brand D',
+        'Brand E',
+        // Add more brands as needed
+    ];
+
+    // Display the list of sponsored brands
+    sponsoredBrandsData.forEach(brandName => {
+        const brandCard = document.createElement('div');
+        brandCard.classList.add('brandCard');
+        brandCard.textContent = brandName;
+        brandListElement.appendChild(brandCard);
+    });
+});
