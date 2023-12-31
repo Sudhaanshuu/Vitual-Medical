@@ -72,3 +72,27 @@ document.addEventListener('DOMContentLoaded', function() {
         brandListElement.appendChild(brandCard);
     });
 });
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const insurancePlansElement = document.getElementById('insurancePlans');
+
+    // Dummy data (replace with actual data or fetch from a server)
+    const insurancePlansData = [
+        { name: 'Plan A', coverage: 'Comprehensive coverage', cost: '$100/month' },
+        { name: 'Plan B', coverage: 'Basic coverage', cost: '$75/month' },
+        { name: 'Plan C', coverage: 'Specialized coverage', cost: '$120/month' },
+        // Add more plans as needed
+    ];
+
+    // Display the list of insurance plans
+    insurancePlansData.forEach(plan => {
+        const insuranceCard = document.createElement('div');
+        insuranceCard.classList.add('insuranceCard');
+        insuranceCard.innerHTML = `<h3>${plan.name}</h3>
+                                   <p><strong>Coverage:</strong> ${plan.coverage}</p>
+                                   <p><strong>Cost:</strong> ${plan.cost}</p>`;
+        insurancePlansElement.appendChild(insuranceCard);
+    });
+});
