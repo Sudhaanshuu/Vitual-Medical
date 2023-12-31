@@ -30,3 +30,22 @@ function searchDoctors() {
         L.marker([location.lat, location.lng]).addTo(map).bindPopup(location.name);
     });
 }
+
+document.addEventListener('DOMContentLoaded', function() {
+    const doctorListElement = document.getElementById('doctorList');
+
+    // Dummy data (replace with actual data or fetch from a server)
+    const bestDoctorsData = [
+        { name: 'Dr. John Smith', specialization: 'Cardiologist' },
+        { name: 'Dr. Emily Johnson', specialization: 'Pediatrician' },
+        { name: 'Dr. Michael Davis', specialization: 'Dermatologist' },
+        // Add more doctors as needed
+    ];
+
+    // Display the list of best doctors
+    bestDoctorsData.forEach(doctor => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `${doctor.name} - ${doctor.specialization}`;
+        doctorListElement.appendChild(listItem);
+    });
+});
