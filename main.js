@@ -96,3 +96,24 @@ document.addEventListener('DOMContentLoaded', function() {
         insurancePlansElement.appendChild(insuranceCard);
     });
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const reviewsListElement = document.getElementById('reviewsList');
+    const reviewInput = document.getElementById('reviewInput');
+
+    function addReview() {
+        const reviewText = reviewInput.value;
+        if (reviewText.trim() !== '') {
+            const reviewCard = document.createElement('div');
+            reviewCard.classList.add('reviewCard');
+            reviewCard.textContent = reviewText;
+            reviewsListElement.appendChild(reviewCard);
+            reviewInput.value = '';
+        }
+    }
+
+    // You can add default reviews or fetch reviews from a server here.
+
+    window.addReview = addReview;
+});
