@@ -117,3 +117,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
     window.addReview = addReview;
 });
+
+start_game();
