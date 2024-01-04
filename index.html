@@ -5,6 +5,165 @@
     <title>Greeni - Message Reply Bot</title>
     <style>
         /* Your existing styles */
+        
+        .chatbot {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            background: #fff;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            display: none;
+            flex-direction: column;
+            z-index: 9999;
+            /* Set a high z-index value */
+        }
+        
+        .chat-header {
+            background: #fe3f40;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        
+        .close-button {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        
+        .chat-content {
+            padding: 10px;
+            max-height: 250px;
+            overflow-y: auto;
+        }
+        
+        .message {
+            margin: 5px;
+            padding: 10px;
+            border-radius: 5px;
+        }
+        
+        .received {
+            background: #f0f0f0;
+        }
+        
+        .sent {
+            background: #fe3f40;
+            color: #fff;
+            align-self: flex-end;
+        }
+        
+        .chat-input {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-top: 1px solid #ccc;
+        }
+        
+        #user-input {
+            flex: 1;
+            padding: 5px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            max-width: 70%;
+        }
+        
+        #send-button {
+            background: #fe3f40;
+            color: #fff;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-left: 10px;
+        }
+        
+        .chat-header {
+            background: #fe3f40;
+            color: #fff;
+            padding: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        
+        .close-button {
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        
+        #chatbot.small .chat-header {
+            display: none;
+        }
+        
+        #chatbot.small .chat-content {
+            display: none;
+        }
+        
+        #chatbot.small #chat-input {
+            display: none;
+        }
+        
+        #chatbot.small #close-button {
+            display: none;
+        }
+        
+        #chatbot.small .bot-name {
+            display: block;
+            text-align: center;
+            background: #fe3f40;
+            color: #fff;
+            padding: 5px;
+            border-radius: 0 0 10px 10px;
+            cursor: pointer;
+        }
+        /* Additional styles for the chatbot when it's expanded  */
+        
+        #chatbot.expanded {
+            width: 300px;
+            height: auto;
+        }
+        
+        #chat-content.expanded {
+            display: block;
+            max-height: 250px;
+            overflow-y: auto;
+        }
+        
+        #chat-input.expanded {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px;
+            border-top: 1px solid #ccc;
+        }
+        
+        .bot-icon {
+            width: 40px;
+            height: 40px;
+            background-color: #fe3f40;
+            border-radius: 50%;
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            display: none;
+            cursor: pointer;
+        }
     </style>
 </head>
 
