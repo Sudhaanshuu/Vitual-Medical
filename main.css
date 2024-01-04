@@ -1,170 +1,45 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
+.doctors {
+    background-color: #ffffff;
+    padding: 30px 0;
 }
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-#bestDoctors {
-    padding: 40px 0;
-    background-color: #f4f4f4;
+.section-title {
     text-align: center;
 }
 
-h2 {
-    color: #333;
+.section-title h2 {
+    font-size: 32px;
+    color: #fe3f40;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
-}
-
-li {
-    margin-bottom: 10px;
-    background-color: #fff;
-    padding: 15px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-}
-
-li:hover {
-    transform: scale(1.05);
-}
-
-.container {
+.info {
+    width: 100%;
     max-width: 800px;
     margin: 0 auto;
-}
-
-#sponsoredBrands {
-    padding: 40px 0;
-    background-color: #f9f9f9;
-    text-align: center;
-}
-
-h2 {
-    color: #333;
-}
-
-#brandList {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.brandCard {
     background-color: #fff;
-    margin: 10px;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
+    border: 2px solid #fe3f40;
+    padding: 30px;
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
-.brandCard:hover {
-    transform: scale(1.05);
-}
 
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-}
+/* Form styling */
 
-#insuranceComparison {
-    padding: 40px 0;
-    background-color: #f4f4f4;
-    text-align: center;
-}
-
-h2 {
-    color: #333;
-}
-
-#insurancePlans {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.insuranceCard {
-    background-color: #fff;
-    margin: 10px;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease-in-out;
-}
-
-.insuranceCard:hover {
-    transform: scale(1.05);
-}
-
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-#customerReviews {
-    padding: 40px 0;
-    background-color: #f9f9f9;
-    text-align: center;
-}
-
-h2 {
-    color: #333;
-}
-
-#reviewsList {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-}
-
-.reviewCard {
-    background-color: #fff;
-    margin: 10px;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-#addReviewForm {
-    margin-top: 20px;
-}
-
-label {
+form label {
     display: block;
-    margin-bottom: 10px;
 }
 
-input {
+form input,
+form textarea {
     width: 100%;
     padding: 10px;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
 }
 
-button {
-    background-color: #4caf50;
+form button {
+    background-color: #fe3f40;
     color: #fff;
-    padding: 10px 15px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
-
-button:hover {
-    background-color: #45a049;
-}
-
-body {
-    margin: 0;
+    padding: 10px 20px;
 }

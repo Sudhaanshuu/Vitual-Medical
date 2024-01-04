@@ -1,58 +1,128 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meeting Scheduler</title>
-    <link rel="stylesheet" href="main.css">
-    <link rel="stylesheet" href="icofont/icofont.min.css">
-    <link rel="stylesheet" type="text/css" href="https://gregweston.dev/learncode/games/css/base.css">
+    <title>Greeni - Message Reply Bot</title>
+    <style>
+        /* Your existing styles */
     </style>
 </head>
 
 <body>
 
-    <!-- new section for best doc list -->
-    <section id="bestDoctors">
-        <div class="container">
-            <h2>Best Doctors in Your City</h2>
-            <ul id="doctorList"></ul>
+    <div id="chatbot" class="chatbot">
+        <div id="chat-header" class="chat-header">
+            Green Coders
+            <button id="close-button" class="close-button">&times;</button>
         </div>
-    </section>
-    <!-- New section for the brand sponsed -->
-    <section id="sponsoredBrands">
-        <div class="container">
-            <h2>Our Sponsored Brands</h2>
-            <div id="brandList"></div>
+        <div id="chat-content" class="chat-content">
+            <!-- Messages will be displayed here -->
         </div>
-    </section>
+        <div id="chat-input" class="chat-input">
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button id="send-button">Send</button>
+            <button id="mic-button">🎤</button>
+        </div>
+    </div>
 
-    <!-- new section for the insurance comparition display -->
-    <section id="insuranceComparison">
-        <div class="container">
-            <h2>Health Insurance Comparison</h2>
-            <div id="insurancePlans"></div>
-        </div>
-    </section>
+    <script>
+        const chatbot = document.getElementById("chatbot");
+        const closeButton = document.getElementById("close-button");
+        const sendButton = document.getElementById("send-button");
+        const micButton = document.getElementById("mic-button");
+        const userInputElement = document.getElementById("user-input");
+        const chatContent = document.getElementById("chat-content");
 
-    <!-- New section for the reviw  -->
-    <section id="customerReviews">
-        <div class="container">
-            <h2>Customer Reviews</h2>
-            <div id="reviewsList"></div>
-            <div id="addReviewForm">
-                <label for="reviewInput">Add Your Review:</label>
-                <input type="text" id="reviewInput" placeholder="Type your review">
-                <button onclick="addReview()">Add Review</button>
-            </div>
-        </div>
-    </section>
-    <div id="lose-game-screen"></div>
+        let recognition;
 
-    <script src="https://gregweston.dev/learncode/games/js/phaser.min.js"></script>
-    <script src="https://gregweston.dev/learncode/games/ghost-jump/game.js"></script>
-    <script src="main.js"></script>
+        function toggleChatbotSize() {
+            chatbot.classList.toggle("small");
+        }
+
+        function addUserMessage(message) {
+            const userMessage = document.createElement("div");
+            userMessage.textContent = message;
+            userMessage.classList.add("message", "sent");
+            chatContent.appendChild(userMessage);
+            userInputElement.value = "";
+        }
+
+        function addChatbotMessage(message) {
+            const chatbotMessage = document.createElement("div");
+            chatbotMessage.textContent = message;
+            chatbotMessage.classList.add("message", "received");
+            chatContent.appendChild(chatbotMessage);
+
+            const speech = new SpeechSynthesisUtterance(message);
+            speechSynthesis.speak(speech);
+        }
+
+        function toggleChatbot() {
+            chatbot.classList.toggle("active");
+        }
+
+        function startSpeechRecognition() {
+            recognition = new webkitSpeechRecognition() || new SpeechRecognition();
+            recognition.lang = 'en-US';
+            recognition.continuous = false;
+            recognition.interimResults = false;
+
+            recognition.onresult = (event) => {
+                const spokenText = event.results[0][0].transcript;
+                addUserMessage(spokenText);
+
+                // Process the spoken text and generate a response
+                let response = "Hi, I'm Green Coders, an AI assistant.";
+
+                switch (spokenText.toLowerCase()) {
+                    case "hello":
+                        response = "Hello! How can I assist you today?";
+                        break;
+                    case "how are you":
+                        response = "I'm just a computer program, so I don't have feelings, but I'm here to help!";
+                        break;
+                        // Add more cases and responses as needed
+                    default:
+                        response = "I'm sorry, I didn't understand that. How can I assist you?";
+                        break;
+                }
+
+                addChatbotMessage(response);
+            };
+
+            recognition.start();
+        }
+
+        closeButton.addEventListener("click", toggleChatbot);
+        micButton.addEventListener("click", startSpeechRecognition);
+
+        sendButton.addEventListener("click", () => {
+            const userMessage = userInputElement.value;
+            if (userMessage.trim() === "") return;
+
+            addUserMessage(userMessage);
+
+            let response = "Hi, I'm Green Coders, an AI assistant.";
+
+            switch (userMessage.toLowerCase()) {
+                case "hello":
+                    response = "Hello! How can I assist you today?";
+                    break;
+                case "how are you":
+                    response = "I'm just a computer program, so I don't have feelings, but I'm here to help!";
+                    break;
+                    // Add more cases and responses as needed
+                default:
+                    response = "I'm sorry, I didn't understand that. How can I assist you?";
+                    break;
+            }
+
+            addChatbotMessage(response);
+        });
+
+        chatbot.style.display = "block";
+        toggleChatbot();
+    </script>
 </body>
 
 </html>
