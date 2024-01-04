@@ -172,7 +172,7 @@
     <div id="chatbot" class="chatbot">
         <div id="chat-header" class="chat-header">
             Green Coders
-            <button id="close-button" class="close-button">&times;</button>
+            <button id="toggle-button" class="close-button">📮</button>
         </div>
         <div id="chat-content" class="chat-content">
             <!-- Messages will be displayed here -->
@@ -186,7 +186,7 @@
 
     <script>
         const chatbot = document.getElementById("chatbot");
-        const closeButton = document.getElementById("close-button");
+        const toggleButton = document.getElementById("toggle-button");
         const sendButton = document.getElementById("send-button");
         const micButton = document.getElementById("mic-button");
         const userInputElement = document.getElementById("user-input");
@@ -252,7 +252,7 @@
             recognition.start();
         }
 
-        closeButton.addEventListener("click", toggleChatbot);
+        toggleButton.addEventListener("click", toggleChatbotSize);
         micButton.addEventListener("click", startSpeechRecognition);
 
         sendButton.addEventListener("click", () => {
